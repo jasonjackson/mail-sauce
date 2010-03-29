@@ -1,0 +1,50 @@
+A distributed email newsletter system which utilizes:
+
+Resque - http://wiki.github.com/defunkt/resque/
+
+Tenjin - http://www.kuwata-lab.com/tenjin/
+
+Redis - http://code.google.com/p/redis/
+
+TMail - http://tmail.rubyforge.org/
+
+Usage:
+
+
+Start some workers.  See the Resque documentation for more info.
+
+jjackson@sfqload01 /mail-sauce/services/emailer/actors
+$ COUNT=8 QUEUE=priority,normal rake resque:workers
+
+
+Start Redis.  This depends on if you installed via gems or RPM.
+
+jjackson@sfqload01 /
+$ redis-server
+
+
+Send an email list:
+
+jjackson@sfqload01  /mail-sauce/services/emailer/mappers
+$ ./send.rb -t -l my_email_list_name
+
+
+Start resque-web to get your pretty web interface:
+
+jjackson@sfqload01  /mail-sauce/services/emailer/mappers
+$ resque-web
+[Mon Mar 29 11:26:51 +0000 2010] Starting 'resque-web'...
+[Mon Mar 29 11:26:51 +0000 2010] trying port 5678...
+
+
+
+It's still a bit of a work in progress and can use a little refactoring and cleaning.  
+So far it feels very stable, and is looking good for a production release.  If you have 
+any questions, need help setting it up, or know how it can be better please do hit me up 
+at:
+
+http://dotrb.com and ping Jason Jackson (me)  or the site admin (me).
+
+
+
+
