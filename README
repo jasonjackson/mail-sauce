@@ -1,17 +1,9 @@
-A distributed email newsletter system which utilizes:
-
-Resque - http://wiki.github.com/defunkt/resque/
-
-Tenjin - http://www.kuwata-lab.com/tenjin/
-
-Redis - http://code.google.com/p/redis/
-
-TMail - http://tmail.rubyforge.org/
+A distributed email newsletter system which sends billions of email a year from a multi-tiered MTA cluster
 
 Usage:
 
 
-Start some workers.  See the Resque documentation for more info.
+Start some workers.  
 
 jjackson@sfqload01 /mail-sauce/services/emailer/actors
 $ COUNT=8 QUEUE=priority,normal rake resque:workers
@@ -38,12 +30,6 @@ $ resque-web
 
 
 
-It's still a bit of a work in progress and can use a little refactoring and cleaning.  
-So far it feels very stable, and is looking good for a production release.  If you have 
-any questions, need help setting it up, or know how it can be better please do hit me up 
-at:
-
-http://dotrb.com and ping Jason Jackson (me)  or the site admin (me).
 
 
 
